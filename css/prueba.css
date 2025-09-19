@@ -1,0 +1,29 @@
+body{
+    width: 600px;
+    border: 2px solid black;
+    padding: 6rem;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    color: aliceblue;
+}
+h1{
+    display: block;
+    border: 2px solid black;
+    width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10%;
+}
+label{
+    color: aliceblue;
+    font-size: 18px;
+    padding: 11px;
+    font-weight: 350;
+}
+input{
+    display: block;
+    border: 2px solid black;
+    width: 95%;
+    padding: 10;
+}
