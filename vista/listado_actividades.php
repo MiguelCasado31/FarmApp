@@ -32,7 +32,7 @@
     <div id="sidebar" class="sidebar">
         <h2>FarmAPP</h2>
         <ul>
-            <li><a href="../pantalla_inicio.php">Inicio</a></li>
+            <li><a href="../index.php">Inicio</a></li>
             <li><a href="listado_actividades.php">Actividades</a></li>
             <li><a href="listado_parcelas.php">Campos</a></li>
             <li><a href="listado_maquinaria.php">Maquinaria</a></li>
@@ -102,7 +102,7 @@
                 </table>
             </div>
             <div class="container text-center mb-3">
-                <a href="../pantalla_inicio.php">
+                <a href="../index.php">
                     <button class="btn btn-primary">
                         <i class="fa-solid fa-arrow-left"></i>
                         Inicio

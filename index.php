@@ -1,56 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Sesión</title>
-    <link rel="shortcut icon" href="images/farm-app1.ico" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/a7093f3be1.js" crossorigin="anonymous"></script>
+    <title>FarmAPP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
 </head>
 
-<body class="container mt-5 d-flex justify-content-center flex-column align-items-center  p-5 rounded" style="width: 600px; border: 2px solid black;">
-    <form class="w-100 text-center p-4 rounded border border-2 shadow-sm bg-light"
-        action="../ProyectoTierras/controlador/controlador_general.php"
-        method="POST"
-        aria-labelledby="form-title">
 
-        <input type="hidden" name="accion" value="inicio_sesion">
+<body>
+    <?php
+    if (isset($_GET['usuario'])) {
+        $id = $_GET['usuario'];
+    }
 
-        <h1 id="form-title" class="py-2 mb-4 text-primary" style="font-size: 24px;">Iniciar Sesión</h1>
+    ?>
+    <!-- Botón de menú -->
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
 
-        <div class="mb-4">
-            <label for="usuario" class="form-label fw-bold">Usuario</label>
-            <input type="text"
-                class="form-control w-50 mx-auto border-secondary"
-                name="usuario"
-                id="usuario"
-                placeholder="Introduce tu nombre de usuario"
-                required
-                aria-label="Nombre de usuario">
+    <!-- Barra Lateral -->
+    <div id="sidebar" class="sidebar">
+        <h2>FarmAPP</h2>
+        <ul>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="vista/listado_actividades.php">Actividades</a></li>
+            <li><a href="vista/listado_parcelas.php">Campos</a></li>
+            <li><a href="vista/listado_maquinaria.php">Maquinaria</a></li>
+        </ul>
+        <div class="profile-menu">
+            <button class="profile-btn" onclick="toggleProfileMenu()">
+                <i class="fa-regular fa-circle-user"></i>
+            </button>
+            <div id="profile-dropdown" class="profile-dropdown">
+                <a href="configuracion.html">Configuración del perfil</a>
+                <a href="logout.php">Cerrar sesión</a>
+            </div>
         </div>
+    </div>
 
-        <div class="mb-4">
-            <label for="password" class="form-label fw-bold">Contraseña</label>
-            <input type="password"
-                class="form-control w-50 mx-auto border-secondary"
-                name="password"
-                id="password"
-                placeholder="Introduce tu contraseña"
-                required
-                aria-label="Contraseña">
-        </div>
+    <!-- Contenido Principal -->
+    <section id="main-content" class="main-content text-center">
+        <h1 class="text-center">Bienvenido</h1>
+        <p class="text-center">Este es el contenido de la página.</p>
+    </section>
 
-        <div class="d-flex justify-content-center gap-3 mt-4">
-            <button type="submit"
-                class="btn btn-primary px-4 py-2"
-                aria-label="Iniciar sesión">Iniciar Sesión</button>
-        </div>
-    </form>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
 
+        function toggleProfileMenu() {
+            document.getElementById("profile-dropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.profile-menu')) {
+                document.getElementById("profile-dropdown").classList.remove("show");
+            }
+        };
+    </script>
 
 </body>
-
 
 </html>
