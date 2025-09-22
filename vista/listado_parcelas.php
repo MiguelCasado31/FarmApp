@@ -112,6 +112,7 @@ $parcelas = recoger_parcelas();
                 </table>
             </div>
         </div>
+        <!-- Es una prueba -->
     </div>
     <div class="container text-center mt-3 mb-5">
         <a href="../index.php">
