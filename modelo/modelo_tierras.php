@@ -137,7 +137,7 @@ function eliminar_actividad($id)
 function obtener_actividad_por_id($id)
 {
     $pdo = conectarBD();
-    $stmt = $pdo->prepare("SELECT ra.id_actividad, ra.trabajo, ra.fecha, c.nombre, ra.duracion, m.Vehículo, ra.comentarios FROM registroActividades ra JOIN campos c ON ra.id_campo = c.id_campo JOIN maquinaria m ON m.id_maquinaria = ra.id_maquinaria WHERE id_actividad = :id ");
+    $stmt = $pdo->prepare("SELECT ra.id_actividad, ra.trabajo, ra.fecha, c.nombre, ra.duracion, m.Marca, m.Modelo, ra.comentarios FROM registroActividades ra JOIN campos c ON ra.id_campo = c.id_campo JOIN maquinaria m ON m.id_maquinaria = ra.id_maquinaria WHERE id_actividad = :id ");
     $stmt->execute([':id' => $id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -210,7 +210,8 @@ function obtener_parcelas_por_id($id)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function obtener_ultimas_actividades_por_parcela($id_parcela, $limite = 2) {
+function obtener_ultimas_actividades_por_parcela($id_parcela, $limite = 2)
+{
     $pdo = conectarBD();
     $stmt = $pdo->prepare("SELECT trabajo, fecha, duracion FROM registroActividades WHERE id_campo = :id_parcela ORDER BY fecha DESC LIMIT :limite");
     $stmt->bindParam(':id_parcela', $id_parcela, PDO::PARAM_INT);
@@ -234,23 +235,30 @@ function listar_parcelas()
 
 //MAQUINARIA
 //Función para insertar una nueva maquinaria
-function insertar_maquinaria($vehiculo, $marca, $modelo, $consumo)
-{
+function insertar_maquinaria($tipo_maquinaria, $marca, $modelo, $consumo){
     $pdo = conectarBD();
-    $sql = "INSERT INTO maquinaria (Vehículo, Marca, Modelo, Consumo)
-            VALUES (:vehiculo, :marca, :modelo, :consumo)";
+    $sql = "INSERT INTO maquinaria (Tipo_Maquinaria, Marca, Modelo, Consumo, activo)
+            VALUES (:tipo_maquinaria, :marca, :modelo, :consumo, 1)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':vehiculo' => $vehiculo,
+        ':tipo_maquinaria' => $tipo_maquinaria,
         ':marca' => $marca,
         ':modelo' => $modelo,
         ':consumo' => $consumo
     ]);
 }
+
+function obtener_tipo_maquinaria()
+{
+    $pdo = conectarBD();
+    $stmt = $pdo->query("SELECT DISTINCT nombre from tipo_maquinaria");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function obtener_maquinaria()
 {
     $pdo = conectarBD();
-    $stmt = $pdo->query("SELECT * FROM maquinaria");
+    $stmt = $pdo->query("SELECT m.*, t.nombre AS tipo_maquinaria_nombre FROM maquinaria m JOIN tipo_maquinaria t ON m.tipo_maquinaria = t.id_tipo_maquinaria");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 //Función para obtener la maquinaria dependiendo del id
@@ -263,13 +271,13 @@ function obtener_maquinaria_por_id($id)
 }
 
 //Función para actualizar la información de la maquinaria 
-function actualizar_maquinaria($vehiculo, $marca, $modelo, $consumo, $id)
+function actualizar_maquinaria($maquinaria, $marca, $modelo, $consumo, $id)
 {
     $pdo = conectarBD();
-    $sql = "UPDATE maquinaria set Vehículo = :vehiculo, Marca = :marca, Modelo = :modelo, Consumo = :consumo where id_maquinaria = :id";
+    $sql = "UPDATE maquinaria set Maquinaria = :maquinaria, Marca = :marca, Modelo = :modelo, Consumo = :consumo where id_maquinaria = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':vehiculo' => $vehiculo,
+        ':maquinaria' => $maquinaria,
         ':marca' => $marca,
         ':modelo' => $modelo,
         ':consumo' => $consumo,
