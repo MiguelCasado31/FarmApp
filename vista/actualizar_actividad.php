@@ -48,6 +48,7 @@
                         <option value="Finalizada">Finalizada</option>
                     </select>
                 </div>
+                
                 <div class="d-flex mt-3">
                     <label class="col-md-2 lead" for="fecha"><strong>Fecha:</strong></label>
                     <input type="date" class="form-control w-75" id="fecha" name="fecha" value="<?php echo $actividad['fecha'] ?>">
