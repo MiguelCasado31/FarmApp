@@ -17,6 +17,7 @@
 
         $actividad = obtener_actividad_por_id($id);
 
+
         ?>
         <div class="bg-white container mt-5 border border-dark pb-3 card">
             <form action="../controlador/controlador_actividades.php" method="post">
@@ -40,15 +41,6 @@
                     </select>
 
                 </div>
-                <div class="d-flex mt-3">
-                    <label class="col-md-2 lead" for="estado"><strong>Estado:</strong></label>
-                    <select name="estado" id="estado" class="form-control w-75">
-                        <option value="Planificada">Planificada</option>
-                        <option value="En proceso">En proceso</option>
-                        <option value="Finalizada">Finalizada</option>
-                    </select>
-                </div>
-                
                 <div class="d-flex mt-3">
                     <label class="col-md-2 lead" for="fecha"><strong>Fecha:</strong></label>
                     <input type="date" class="form-control w-75" id="fecha" name="fecha" value="<?php echo $actividad['fecha'] ?>">
@@ -87,7 +79,7 @@
             </form>
         </div>
         <div class="container text-center mt-5 ">
-            <a href="listado_parcelas.php">
+            <a href="listado_actividades.php">
                 <button class="btn btn-primary sm">
                     <i class="fa-solid fa-arrow-left"></i>
                     Inicio

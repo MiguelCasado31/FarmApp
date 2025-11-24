@@ -60,7 +60,6 @@
             </a>
 
         </div>
-
         <div>
             <div class="table-responsive">
                 <table class="table table-fluid text-center p-5">
