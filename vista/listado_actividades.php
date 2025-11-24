@@ -53,7 +53,7 @@
         <div class="row">
             <h2 class="col-11 text-center">Actividades</h2>
 
-            <a href="fm_AltaActividad.php" class="col-1">
+            <a href="alta_actividad.php" class="col-1">
                 <button class="btn btn-primary rounded">
                     <i class="fa-solid fa-circle-plus"></i>
                 </button>
