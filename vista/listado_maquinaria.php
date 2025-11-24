@@ -71,7 +71,7 @@ if (isset($_GET['usuario'])) {
             <tbody>
                 <?php foreach ($maquinarias as $maquinaria) : ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($maquinaria['Maquinaria']); ?></td>
+                        <td><?php echo htmlspecialchars($maquinaria['tipo_maquinaria_nombre']); ?></td>
                         <td><?php echo htmlspecialchars($maquinaria['Marca']) ?></td>
                         <td><?php echo htmlspecialchars($maquinaria['Modelo']) ?></td>
                         <td><?php echo htmlspecialchars($maquinaria['Consumo']) ?></td>

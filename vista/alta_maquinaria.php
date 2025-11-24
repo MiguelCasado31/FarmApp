@@ -10,13 +10,6 @@
     <script src="https://kit.fontawesome.com/a7093f3be1.js" crossorigin="anonymous"></script>
 </head>
 <style>
-    .imagen {
-        background-image: url('../images/slider1.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-
     .formulario {
         opacity: 0.9;
         background-color: white;
@@ -36,10 +29,19 @@ require_once "../modelo/modelo_tierras.php";
             <input type="hidden" name="accion" value="alta">
             <div class="form-group d-flex mt-3">
                 <div class="col-xl-2 col-md-4 col-sm-6 col-6">
-                    <label class="lead" for="vehiculo"><strong>Vehiculo:</strong></label>
+                    <label class="lead" for="maquinaria"><strong>Maquinaria:</strong></label>
                 </div>
                 <div class="col-xl-10 col-md-8 col-sm-6 col-6">
-                    <input type="text" id="vehiculo" name="vehiculo" class="form-control" placeholder="Vehiculo" required>
+                    <select name="tipo_maquinaria" id="tipo_maquinaria" class="form-control" required>
+                        <option value="" selected>Seleccione tipo de maquinaria</option>
+                        <?php
+                        $tipo_maquinaria = obtener_tipo_maquinaria();
+                        foreach ($tipo_maquinaria as $tipo):
+                            echo '<option value="' . $tipo['id_tipo_maquinaria'] . '">' . $tipo['nombre'] . '</option>';
+                        endforeach;
+                        ?>
+                    </select>
+
                 </div>
             </div>
             <div class="form-group d-flex mt-3">
@@ -63,7 +65,7 @@ require_once "../modelo/modelo_tierras.php";
                     <label class="lead" for="consumo"><strong>Consumo:</strong></label>
                 </div>
                 <div class="col-xl-10 col-md-8 col-sm-6 col-6">
-                    <input type="number" id="consumo" name="consumo" step="0.01" class="form-control" placeholder="Consumo" >
+                    <input type="number" id="consumo" name="consumo" step="0.01" class="form-control" placeholder="Consumo">
                 </div>
             </div>
             <div class="pb-3">

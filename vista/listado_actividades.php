@@ -90,7 +90,7 @@
                                             <i class="fa fa-pencil"></i>
                                         </button>
                                     </a>
-                                    <a href="<?php echo $eliminar_actividad . $actividad['id_actividad']; ?>">
+                                    <a href="../controlador/controlador_actividades.php?accion=eliminar&id_actividad=<?php echo $actividad['id_actividad']; ?>">
                                         <button class="btn btn-secondary text-white">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>

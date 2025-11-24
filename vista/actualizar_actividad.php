@@ -66,12 +66,11 @@
                         <?php
                         $maquinarias = obtener_maquinaria();
                         foreach ($maquinarias as $maquinaria) {
-                            $selected = ($maquinaria['Vehículo'] == $actividad['maquinaria']) ? 'selected' : '';
-                            echo '<option value="' . $maquinaria['Vehículo'] . '" ' . $selected . '>' . $maquinaria['Vehículo'] . '</option>';
+                            $selected = ($maquinaria['id_maquinaria'] == $actividad['id_maquinaria']) ? 'selected' : '';
+                            echo '<option value="' . $maquinaria['id_maquinaria'] . '" ' . $selected . '>' . $maquinaria['Marca'] . ' ' . $maquinaria['Modelo'] . '</option>';
                         }
                         ?>
                     </select>
-
                 </div>
                 <div class="d-flex mt-3">
                     <label class="col-md-2 lead" for="comentarios"><strong>Comentarios:</strong></label>

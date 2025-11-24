@@ -27,8 +27,8 @@
                     <input name="id_maquinaria" class="form-control w-75" value="<?php echo $id ?>" readonly>
                 </div>
                 <div class="d-flex mt-4">
-                    <label class="col-md-2 lead" for="vehiculo"><strong>Nombre:</strong></label>
-                    <input type="text" class="form-control w-75" id="vehiculo" name="vehiculo" value="<?php echo $maquinaria['Vehículo'] ?>">
+                    <label class="col-md-2 lead" for="maquinaria"><strong>Maquinaria:</strong></label>
+                    <input type="text" class="form-control w-75" id="maquinaria" name="maquinaria" value="<?php echo $maquinaria['Maquinaria'] ?>" readonly>
                 </div>
                 <div class="d-flex mt-3">
                     <label class="col-md-2 lead" for="marca"><strong>Marca:</strong></label>
