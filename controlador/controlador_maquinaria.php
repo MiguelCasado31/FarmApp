@@ -9,19 +9,19 @@ if (isset($_POST['id_maquinaria'])) {
     $id = $_POST['id_maquinaria'];
 }
 
-if (isset($_GET['id_maquinaria'])) {
+if (isset($_GET['id_maquinaria'])) {-
     $id = $_GET['id_maquinaria'];
 }
 
 if (isset($_POST['accion'])) {
     switch ($_POST['accion']) {
         case 'alta':
-            $vehiculo = limpiar_dato($_POST['vehiculo']);
+            $tipo_maquinaria = limpiar_dato($_POST['tipo_maquinaria']);
             $marca = limpiar_dato($_POST['marca']);
             $modelo = limpiar_dato($_POST['modelo']);
             $consumo = limpiar_dato($_POST['consumo']);
-            
-            insertar_maquinaria($vehiculo, $marca, $modelo, $consumo);
+            var_dump($tipo_maquinaria);
+            insertar_maquinaria($tipo_maquinaria, $marca, $modelo, $consumo);
             header("Location: ../vista/listado_maquinaria.php");
             break;
         case 'eliminar':
@@ -29,12 +29,12 @@ if (isset($_POST['accion'])) {
             header("Location: ../vista/listado_maquinaria.php");
             break;
         case 'actualizar':
-            $vehiculo = limpiar_dato($_POST['vehiculo']);
+            $maquinaria = limpiar_dato($_POST['maquinaria']);
             $marca = limpiar_dato($_POST['marca']);
             $modelo = limpiar_dato($_POST['modelo']);
             $consumo = limpiar_dato($_POST['consumo']);
 
-            actualizar_maquinaria($vehiculo, $marca, $modelo, $consumo, $id);
+            actualizar_maquinaria($maquinaria, $marca, $modelo, $consumo, $id);
             header("Location: ../vista/listado_maquinaria.php");
             break;
         case 'listar':

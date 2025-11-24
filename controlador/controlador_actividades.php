@@ -42,7 +42,7 @@ if (isset($_POST['accion'])) {
             break;
         case 'eliminar':
             eliminar_actividad($id);
-            header("Location: ../vista/listado_actividades.php");    
+            header("Location: /ProyectoTierras/vista/listado_actividades.php");    
             break;
         case 'actualizar':
             $trabajo = limpiar_dato($_POST['trabajo']);
@@ -58,7 +58,7 @@ if (isset($_POST['accion'])) {
             } else {
                 echo "No se encontró la parcela.";
             }
-            header("Location: /vista/listado_actividades.php");
+            header("Location: /ProyectoTierras/vista/listado_actividades.php");
             break;
         case 'listar':
             // Código para listar
