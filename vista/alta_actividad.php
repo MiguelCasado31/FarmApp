@@ -9,14 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a7093f3be1.js" crossorigin="anonymous"></script>
 </head>
-<style>
-    .imagen {
-        background-image: url('../images/fondo_actividades.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-</style>
+
 <?php
 require_once "../modelo/modelo_tierras.php";
 ?>
@@ -58,7 +51,14 @@ require_once "../modelo/modelo_tierras.php";
                         <label class="lead" for="duracion"><strong>Duracion:</strong></label>
                     </div>
                     <div class="col-xl-10 col-md-8 col-sm-6 col-6">
-                        <input type="time" id="duracion" name="duracion" class="form-control" placeholder="Duracion">
+                        <input type="time"
+                            id="duracion"
+                            name="duracion"
+                            class="form-control"
+                            value="00:00"
+                            min="00:00"
+                            max="23:59"
+                            step="600">
                     </div>
                 </div>
                 <div class="form-group d-flex mt-3">

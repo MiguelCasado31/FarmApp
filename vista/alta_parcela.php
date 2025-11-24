@@ -4,24 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Producto</title>
+    <title>Añadir Parcela</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a7093f3be1.js" crossorigin="anonymous"></script>
 </head>
-<style>
-    .imagen {
-            background-image: url('../images/campos2.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .tabla {
-
-            background-color: white;
-        }
-    </style>
-</style>
 <body class="imagen">
     <div>
         <div class="tabla container mt-5 border border-dark pb-3 card">
