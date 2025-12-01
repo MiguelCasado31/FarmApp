@@ -169,7 +169,6 @@ return [
          |
          */
 
-        LaravelFrontendPresets\NowUiPreset\NowUiPresetServiceProvider::class,
         Laravel\Fortify\FortifyServiceProvider::class,
 
         /*
